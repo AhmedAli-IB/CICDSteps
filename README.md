@@ -86,7 +86,7 @@ Continuous integration and either continuous delivery or continuous deployment s
                 - match_version : Contain match version for example 2.171.0
           
         <p align="center">
-          <img src="Screenshots/folder-structure" width="350" >
+          <img src="Screenshots/folder-structure.png" width="350" >
         </p>
        - ## Match Automatically Setup
             - Simple as that 😄
