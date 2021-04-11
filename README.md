@@ -253,3 +253,4 @@ Continuous integration and either continuous delivery or continuous deployment s
         end
       ```
  ## Bitrise 🤖
+  - Bitrise is a Continuous Integration and Delivery (CI/CD) Platform as a Service (PaaS) with a main focus on mobile app development (iOS, Android, React Native,      Flutter, and so on)، It is a collection of tools and services to help you with the development and automation of your software projects.
