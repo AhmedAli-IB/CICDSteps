@@ -35,7 +35,7 @@ Continuous integration and either continuous delivery or continuous deployment s
     - Every environment has two schemes configurations (debug - release).
         - debuge need a development provisioning profile and release need either Adhoc or appstore provisioning profile.
 ## Setup Fastlane
-- Setup [Fastlane](http://fastlane.tools/)tool and this is the middle man 🕵 between our project and any continuous integration cloud server.
+- Setup [Fastlane ](http://fastlane.tools/)tool and this is the middle man 🕵 between our project and any continuous integration cloud server.
     - Add fastlane gem with specific version to gemfile and use `bundle install`.
     - Use `bundle exec fastlane init` to generate <strong>Fastfile and Appfile.</strong>. 
         - Appfile: Contains global configurations of our project for example (bundle identifier, team id and apple id).
@@ -47,7 +47,7 @@ Continuous integration and either continuous delivery or continuous deployment s
                 team_id "team id"
                 ```
         - fastfile: Contains our lanes to automate specific develoment tasks.
- - Setup [Match Action](http://docs.fastlane.tools/actions/match/#match).
+ - Setup [Match Action ](http://docs.fastlane.tools/actions/match/#match).
     - Share one code signing identity across your development team to simplify your codesigning setup and prevent code signing issues.
     -  Use `bundle exec fastlane match init` to generate  match file is a configuration file to match action.
        - Add <Strong> git_url,storage_mode and (true) </Strong>
@@ -108,5 +108,24 @@ Continuous integration and either continuous delivery or continuous deployment s
                  ```
  
  ## Fastlane Actions Example
- 
-
+  - ## [Snapshot Action ](https://docs.fastlane.tools/getting-started/ios/screenshots/)
+    - Using `terminal`, navigate to your project directory and initialise snapshot Using `bundle exec fastlane snapshot init`.
+    - Once you run this command fastlane will create two files in your project directory, <Strong> Snapfile and SnapshotHelper.swift </Strong>.
+    - Set your devices and languages in  <Strong> Snapfile </Strong>. One important thing you’ll have to do is to set the scheme name that will run the UI tests.
+    - snapshot is actually using UI tests to create your screenshots. It will run a UI test on your app and all you have to do is tell it when to take the               screenshot and how to name it.
+    - Add <Strong> SnapshotHelper.swift </Strong> To UITest target and make sure you’ve set the target membership correctly for <Strong> SnapshotHelper.swift             </Strong>.
+    - Add UI Test Scheme In order to be able to run the new target we’ll need a new scheme. So go on and create one, And Once you’ve created the scheme, you’ll          have to edit it
+    - Make sure that your scheme is set to build and run ✅
+    - Create new class that implement `XCTestCase` protocol
+    - Add code below in setup method
+        - ``` swift
+            override func setUp() {
+              let app = XCUIApplication()
+              setupSnapshot(app)
+              app.launch()
+             }
+          ```
+    - Add a test function, And if you click inside the body of the function a little red record button will become enabled
+    - When you click the ‘record’ button your app will start. From this point on Xcode will record all the actions you take in your app. Make sure you navigate to      the screens that you want to grab screenshots for. 
+    - As you’re navigating through the app you’ll see that this function will be populated by code. As the code is being populated remember the places where you         want screenshots taken, When you’re finished navigating through the app stop recording
+    - Finally Add call `bundle exec fastlane snapshot`
