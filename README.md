@@ -129,3 +129,125 @@ Continuous integration and either continuous delivery or continuous deployment s
     - When you click the ‘record’ button your app will start. From this point on Xcode will record all the actions you take in your app. Make sure you navigate to      the screens that you want to grab screenshots for. 
     - As you’re navigating through the app you’ll see that this function will be populated by code. As the code is being populated remember the places where you         want screenshots taken, When you’re finished navigating through the app stop recording
     - Finally Add call `bundle exec fastlane snapshot`
+  - ## Fastfile Example
+    - Example of use [Produce ](http://docs.fastlane.tools/actions/produce/#produce) 
+    - [Cocoapods ](http://docs.fastlane.tools/actions/cocoapods/#cocoapods) 
+    - [Increment_build_number ](http://docs.fastlane.tools/actions/increment_build_number/#increment_build_number) 
+    - [Gym ](http://docs.fastlane.tools/actions/gym/#gym) 
+    - [Precheck ](http://docs.fastlane.tools/actions/precheck/#precheck) 
+    - [Pilot ](http://docs.fastlane.tools/actions/pilot/#pilot) 
+    - [deliver ](http://docs.fastlane.tools/actions/deliver/#deliver)
+    - [firebase_app_distribution ](http://docs.fastlane.tools/plugins/available-plugins/#firebase_app_distribution)
+    - ``` ruby
+        # This file contains the fastlane.tools configuration
+        # You can find the documentation at https://docs.fastlane.tools
+        #
+        # For a list of all available actions, check out
+        #
+        #     https://docs.fastlane.tools/actions
+        #
+        # For a list of all available plugins, check out
+        #
+        #     https://docs.fastlane.tools/plugins/available-plugins
+        #
+
+        # Uncomment the line if you want fastlane to automatically update itself
+        # update_fastlane
+
+        default_platform(:ios)
+
+        platform :ios do
+
+
+          lane :register_app do
+            produce
+          end
+
+          desc "Sync team Code-Signing assets"
+          lane :sync_signing_assets do |options|
+            selectedType = options[:type]
+            identifier = options[:app_identifier]
+
+            match(type: selectedType, app_identifier: identifier)
+          end
+
+          desc "Build for App Store submission"
+          lane :build_appstore do
+            #install cocapods
+
+            cocoapods(clean_install: true)
+
+            # install certificates
+
+            sync_signing_assets(type: "appstore", app_identifier: "app_identifier")
+
+            #  increment build number
+            increment_build_number
+
+            # archive app using gym
+            gym(
+              output_directory: "build_AppStore",
+              export_method: "app-store"
+              )
+
+             #take app screen shots
+            snapshot
+          end
+
+          desc "Build for Ad Hoc submission"
+          lane :build_adhoc do
+            #install cocapods
+
+            cocoapods(clean_install: true)
+
+            # install certificates
+
+            sync_signing_assets(type: "adhoc", app_identifier: "app_identifier")
+
+
+            # archive app using gym
+            gym(
+            output_directory: "build_AdHoc",
+            export_method: "ad-hoc"
+            )
+            #  increment build number
+            increment_build_number
+
+            #take app screen shots
+            snapshot
+
+            firebase_app_distribution(
+              firebase_cli_token: "firebase login ci token",
+              app: "firebase app id",
+              testers: "tester@gmail.com",
+              release_notes: "Lots of amazing new features to test out for movie 🍿"
+          )
+
+            end
+
+
+            desc "precheck for meta data and violations rules"
+            lane :check_metadata do
+              precheck
+            end
+
+            desc "upload ipa version to upload_testflight testflight" 
+            lane :upload_testflight do 
+                 # call pilot
+                  pilot(
+                          app_platform: 'ios',
+                          ipa: "relative path of ipa"
+                        )
+            end
+
+
+            desc "deliver uploads screenshots, metadata and binaries to App Store Connect. Use deliver to submit your app for App Store review."
+            lane :submit_app do
+              deliver(
+                ipa: "elative path of ipa",
+                submit_for_review: true,
+                force: true
+              )
+            end
+        end
+      ```
