@@ -130,7 +130,8 @@ Continuous integration and either continuous delivery or continuous deployment s
     - As you’re navigating through the app you’ll see that this function will be populated by code. As the code is being populated remember the places where you         want screenshots taken, When you’re finished navigating through the app stop recording
     - Finally Add call `bundle exec fastlane snapshot`
   - ## Fastfile Example
-    - Example of use [Produce ](http://docs.fastlane.tools/actions/produce/#produce) 
+    - Example of use 
+    - [Produce ](http://docs.fastlane.tools/actions/produce/#produce) 
     - [Cocoapods ](http://docs.fastlane.tools/actions/cocoapods/#cocoapods) 
     - [Increment_build_number ](http://docs.fastlane.tools/actions/increment_build_number/#increment_build_number) 
     - [Gym ](http://docs.fastlane.tools/actions/gym/#gym) 
