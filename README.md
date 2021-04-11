@@ -85,7 +85,9 @@ Continuous integration and either continuous delivery or continuous deployment s
             - Add folder with name 'certs' and another folder with name 'profiles' and add file match_version.txt.
                 - match_version : Contain match version for example 2.171.0
           
-
+        <p align="center">
+          <img src="Screenshots/folder-structure" width="350" >
+        </p>
        - ## Match Automatically Setup
             - Simple as that 😄
             - ``` ruby
