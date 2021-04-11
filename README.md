@@ -107,7 +107,7 @@ Continuous integration and either continuous delivery or continuous deployment s
                  end
                  ```
  
- ## Fastlane Actions Example
+ ## Fastlane Usage
   - ## [Snapshot Action ](https://docs.fastlane.tools/getting-started/ios/screenshots/)
     - Using `terminal`, navigate to your project directory and initialise snapshot Using `bundle exec fastlane snapshot init`.
     - Once you run this command fastlane will create two files in your project directory, <Strong> Snapfile and SnapshotHelper.swift </Strong>.
