@@ -254,3 +254,27 @@ Continuous integration and either continuous delivery or continuous deployment s
       ```
  ## Bitrise 🤖
   - Bitrise is a Continuous Integration and Delivery (CI/CD) Platform as a Service (PaaS) with a main focus on mobile app development (iOS, Android, React Native,      Flutter, and so on)، It is a collection of tools and services to help you with the development and automation of your software projects.
+## Setup Bitrise
+  - Create a new app on Bitrise.
+    - Click “Add your first app” button.
+    - Click “Add your first app” button.
+    - Connect the repository.
+    - Choose a branch, That will run your workflow on it.
+ - Setup repository access
+    - If your app depend on another private repository you need to generate a publich ssh key and put in your GitHub account
+        - not this is a tricky part to access private repos you can go [Match](http://docs.fastlane.tools/actions/match/#match) to resolve problems 
+ - Validate your app
+    - Choose a workspace app name.
+    - Choose a scheme name.
+    - Select ipa export method.
+    - Choose the stack that you want to run your app.
+        - We will  change it later to match our local machine and ruby and bundler version, Otherwise, you might see a failed build. This is an important step if             you are running your build for the first time
+- Registers a webhook for you
+    - We have a three webhooks in bitrise
+        - Push webhook.
+        - Tag webhook.
+        - Pull request webhook.
+  
+
+
+
