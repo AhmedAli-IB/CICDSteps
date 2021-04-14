@@ -283,16 +283,18 @@ Continuous integration and either continuous delivery or continuous deployment s
 - Finsh setup app 🎉.
   
 ## Setup Workflow Editor.
-There are 2 workflows by default: 
-    - Primary: This is the default workflow that allows you to clone your app from the repo, installs Cocoapods/Carthage if needed, runs your app and your unit/UI      tests.
-    - Deploy: Use this workflow if you want to deploy your app to the iTunes Connect (TestFlight or App Store).
-    - The picture above demonstrates how Workflow Editor looks like. You can edit or remove the steps or create a new one or reorder them. Adding or configuring a       step is so easy and fun!
-    - Click any “plus” button between the steps, you will see all the steps that you can add to your workflow. If you want to see only iOS/macOS tools, click the         Apple icon from the top-right of the screen.
-    - When you use fastlane and match action to signing your app you need to insert your password in "Env_Vars" or "Secret"  with key "MATCH_PASSWORD".
+
+   - There are 2 workflows by default: 
+   
+   - Primary: This is the default workflow that allows you to clone your app from the repo, installs Cocoapods/Carthage if needed, runs your app and your unit/UI      tests.
+   - Deploy: Use this workflow if you want to deploy your app to the iTunes Connect (TestFlight or App Store).
+   - The picture above demonstrates how Workflow Editor looks like. You can edit or remove the steps or create a new one or reorder them. Adding or configuring a       step is so easy and fun!
+   - Click any “plus” button between the steps, you will see all the steps that you can add to your workflow. If you want to see only iOS/macOS tools, click the         Apple icon from the top-right of the screen.
+   - When you use fastlane and match action to signing your app you need to insert your password in "Env_Vars" or "Secret"  with key "MATCH_PASSWORD".
          - <p align="center">
               <img src="Screenshots/env.png" width="450" >
           </p > 
-     - Workflow examples
+   - Workflow examples
        -  <p align="center">
              <img src="Screenshots/workflow.png" width="450" >
           </p >
