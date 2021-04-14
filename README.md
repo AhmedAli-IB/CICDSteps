@@ -291,13 +291,11 @@ Continuous integration and either continuous delivery or continuous deployment s
    - The picture above demonstrates how Workflow Editor looks like. You can edit or remove the steps or create a new one or reorder them. Adding or configuring a       step is so easy and fun!
    - Click any “plus” button between the steps, you will see all the steps that you can add to your workflow. If you want to see only iOS/macOS tools, click the         Apple icon from the top-right of the screen.
    - When you use fastlane and match action to signing your app you need to insert your password in "Env_Vars" or "Secret"  with key "MATCH_PASSWORD".
-         - <p align="center">
-              <img src="Screenshots/env.png" width="450" >
+       - <p align="center">
           </p > 
    - Workflow examples
-       -  <p align="center">
-             <img src="Screenshots/workflow.png" width="450" >
-          </p >
+       - <img src="Screenshots/workflow.png" width="450" >
+
 ## Triggers.
  - Responsible for run your builds to automate your development process, this is mean when someone makes a push or (pull request ) to the “development” branch (or    which branch you want), trigger "primary" workflow.
  
