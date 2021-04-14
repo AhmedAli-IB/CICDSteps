@@ -291,9 +291,9 @@ There are 2 workflows by default:
     - When you use fastlane and match action to signing your app you need to insert your password in "Env_Vars" or "Secret"  with key "MATCH_PASSWORD".
          - <p align="center">
               <img src="Screenshots/env.png" width="450" >
-          </p >
-          
-    - <p align="center">
+          </p >   
+    
+   - <p align="center">
           <img src="Screenshots/workflow.png" width="450" >
       </p >
 ## Triggers.
