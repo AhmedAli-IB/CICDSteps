@@ -268,13 +268,40 @@ Continuous integration and either continuous delivery or continuous deployment s
     - Choose a scheme name.
     - Select ipa export method.
     - Choose the stack that you want to run your app.
-        - We will  change it later to match our local machine and ruby and bundler version, Otherwise, you might see a failed build. This is an important step if             you are running your build for the first time
+        - You Should select the stack same as Xcode and macOS version that you use already on your local machine.
+        - When you finished from setup your app in bitrise go to <Strong> workflow_editor -> stack </Strong> to match Xcode and macOS versions same as local                 machine.
+        - click on More (information about this Stack ) to match ruby and bundler version same as local machine.
+     - <p align="center">
+         <img src="Screenshots/validate.png" width="450" >
+        </p>
 - Registers a webhook for you
     - We have a three webhooks in bitrise
         - Push webhook.
         - Tag webhook.
         - Pull request webhook.
+     
+- Finsh setup app 🎉.
   
+## Setup Workflow Editor.
+There are 2 workflows by default: 
+    - Primary: This is the default workflow that allows you to clone your app from the repo, installs Cocoapods/Carthage if needed, runs your app and your unit/UI      tests.
+    - Deploy: Use this workflow if you want to deploy your app to the iTunes Connect (TestFlight or App Store).
+    - The picture above demonstrates how Workflow Editor looks like. You can edit or remove the steps or create a new one or reorder them. Adding or configuring a       step is so easy and fun!
+    - Click any “plus” button between the steps, you will see all the steps that you can add to your workflow. If you want to see only iOS/macOS tools, click the         Apple icon from the top-right of the screen.
+    - When you use fastlane and match action to signing your app you need to insert your password in "Env_Vars" or "Secret"  with key "MATCH_PASSWORD".
+        - <p align="center">
+              <img src="Screenshots/env.png" width="450" >
+          </p >
+    - <p align="center">
+          <img src="Screenshots/workflow.png" width="450" >
+      </p >
+
+## Triggers.
+ - Responsible for run your builds to automate your development process, this is mean when someone makes a push or (pull request ) to the “development” branch (or    which branch you want), trigger "primary" workflow.
+ 
+ - <p align="center">
+     <img src="Screenshots/tirggers.png" width="450" >
+    </p >
 
 
 
