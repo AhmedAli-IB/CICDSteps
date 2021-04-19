@@ -7,7 +7,7 @@ Continuous integration and either continuous delivery or continuous deployment s
     - Install rbenv using `Homebrew` and go to project directory and install another ruby version using `rbenv local 2.6.5` for example 
 - Make sure of gems (Cocoapods, Fastlane) version across development team using [bundler](https://bundler.io/).
     - Bundler is an exit from dependency hell, and ensures that the gems you need are present in development, staging, and production. 
-    - Go to project directory and instal it using `gem install bundler 2.1.4` for example.
+    - Go to project directory and instal it using `gem install bundler -v 2.1.4` for example.
     - Use `bundler init` for determin gems version in our projects.
         - It will generate <strong> Gemfile </strong>.
             - ```ruby
